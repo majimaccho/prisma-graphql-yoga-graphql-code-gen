@@ -1,0 +1,8 @@
+{
+  "name": "prisma-graphql-yoga-graphql-code-gen",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "repository": "https://github.com/macoto1995/prisma-graphql-yoga-graphql-code-gen.git",
+  "author": "Makoto <adosute07@gmail.com>",
+  "license": "MIT"
+}
