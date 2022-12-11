@@ -1,0 +1,8 @@
+type Task {
+  id: ID
+  content: String
+  hasDone: Boolean
+}
+type Query {
+ drafts: [Task!]
+}
