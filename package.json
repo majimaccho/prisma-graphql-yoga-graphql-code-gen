@@ -9,7 +9,8 @@
     "@graphql-tools/schema": "^9.0.12",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
-    "graphql-yoga": "^3.1.1"
+    "graphql-yoga": "^3.1.1",
+    "prisma": "^4.7.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.16.1",
