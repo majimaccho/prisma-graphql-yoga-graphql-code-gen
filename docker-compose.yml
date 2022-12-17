@@ -1,0 +1,32 @@
+version: '3.7'
+
+# For connection urls to the following instances, see
+# https://github.com/prisma/prisma/blob/main/TESTING.md#environment-variables
+services:
+  postgres:
+    image: postgres:10
+    restart: always
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'app-data:/var/lib/postgresql/data'
+  postgres_isolated:
+    image: postgres:10
+    restart: always
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5435:5432'
+    volumes:
+      - 'test-data:/var/lib/postgresql/data'
+
+
+volumes:
+  app-data:
+  test-data:

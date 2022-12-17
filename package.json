@@ -7,10 +7,12 @@
   "license": "MIT",
   "dependencies": {
     "@graphql-tools/schema": "^9.0.12",
+    "@prisma/client": "4.7.1",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
     "graphql-yoga": "^3.1.1",
-    "prisma": "^4.7.1"
+    "prisma": "^4.7.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.16.1",
@@ -21,6 +23,7 @@
     "@graphql-codegen/typescript-resolvers": "2.7.10",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.11.13",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "cross-env": "^7.0.3",
@@ -40,5 +43,8 @@
     "start": "ts-node src/main.ts",
     "generate": "graphql-codegen",
     "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seeds/development.ts"
   }
 }
