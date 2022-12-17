@@ -1,4 +1,4 @@
-import { Resolver, QueryResolvers } from '../resolvers-types'
+import { QueryResolvers } from '../resolvers-types'
 
 
 export const TaskResolever: QueryResolvers['drafts'] = () => {
@@ -6,7 +6,9 @@ export const TaskResolever: QueryResolvers['drafts'] = () => {
     {
       id: '111',
       hasDone: false,
-      content: ""
+      content: "hogehoge",
+      createdAt: new Date(),
+      createdOn: new Date()
     }
   ]
 }

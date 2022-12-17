@@ -1,7 +1,12 @@
+scalar DateTime
+scalar Date
+
 type Task {
   id: ID
-  content: String
-  hasDone: Boolean
+  content: String!
+  hasDone: Boolean!
+  createdAt: DateTime!
+  createdOn: Date!
 }
 type Query {
  drafts: [Task!]

@@ -1,4 +1,7 @@
 import { readFileSync } from 'node:fs'
+import { typeDefs as scalarTypeDefs } from 'graphql-scalars';
+import { resolvers as scalarResolvers } from 'graphql-scalars';
+
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { Resolvers } from './resolvers-types'
 import { TaskResolever } from './domain/task'
@@ -13,6 +16,6 @@ const resolvers: Resolvers = {
 }
 
 export const schema = makeExecutableSchema({
- resolvers: [resolvers],
- typeDefs: [typeDefs]
+ resolvers: [scalarResolvers, resolvers],
+ typeDefs: [scalarTypeDefs, typeDefs]
 })
