@@ -3,6 +3,8 @@ import {
   GraphQLScalarType,
   GraphQLScalarTypeConfig,
 } from "graphql";
+import { Task as TaskModel } from ".prisma/client";
+import { Context } from "./context";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -152,7 +154,7 @@ export type ResolversTypes = {
   ID: ResolverTypeWrapper<Scalars["ID"]>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars["String"]>;
-  Task: ResolverTypeWrapper<Task>;
+  Task: ResolverTypeWrapper<TaskModel>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -163,7 +165,7 @@ export type ResolversParentTypes = {
   ID: Scalars["ID"];
   Query: {};
   String: Scalars["String"];
-  Task: Task;
+  Task: TaskModel;
 };
 
 export interface DateScalarConfig
@@ -177,7 +179,7 @@ export interface DateTimeScalarConfig
 }
 
 export type QueryResolvers<
-  ContextType = any,
+  ContextType = Context,
   ParentType extends ResolversParentTypes["Query"] = ResolversParentTypes["Query"]
 > = {
   drafts?: Resolver<
@@ -188,7 +190,7 @@ export type QueryResolvers<
 };
 
 export type TaskResolvers<
-  ContextType = any,
+  ContextType = Context,
   ParentType extends ResolversParentTypes["Task"] = ResolversParentTypes["Task"]
 > = {
   content?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
@@ -199,7 +201,7 @@ export type TaskResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type Resolvers<ContextType = any> = {
+export type Resolvers<ContextType = Context> = {
   Date?: GraphQLScalarType;
   DateTime?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;

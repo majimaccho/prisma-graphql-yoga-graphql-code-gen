@@ -1,30 +1,35 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 const config: CodegenConfig = {
- schema: 'schema.graphql',
+  schema: 'schema.graphql',
   generates: {
-    './src/resolvers-types.ts': {    
+    './src/resolvers-types.ts': {
       plugins: ['typescript', 'typescript-resolvers'],
     },
- },
- hooks: {
-  afterAllFileWrite: [
-    'prettier --write'
-  ]
- },
- config: {
-  avoidOptionals: {
-    field: true,
-    inputValue: true,
-    object: true,
-    defaultValue: true,
-    immutableTypes: true,
-    defaultScalarType: 'unknown'
   },
-  strictScalars: true,
+  hooks: {
+    afterAllFileWrite: ['prettier --write'],
+  },
+  config: {
+    avoidOptionals: {
+      field: true,
+      inputValue: true,
+      object: true,
+      defaultValue: true,
+      immutableTypes: true,
+      defaultScalarType: 'unknown',
+    },
+    strictScalars: true,
     scalars: {
-    DateTime: 'Date',
-    Date: 'Date'
-  }
- }
+      DateTime: 'Date',
+      Date: 'Date',
+    },
+    contextType: './context#Context',
+    mapperTypeSuffix: 'Model',
+    mappers: {
+      Task: '.prisma/client#Task'
+    }
+     
+  },
+  
 };
 export default config;

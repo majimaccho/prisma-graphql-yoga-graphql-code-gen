@@ -1,14 +1,9 @@
-import { QueryResolvers } from '../resolvers-types'
+import { QueryResolvers, TaskResolvers } from '../resolvers-types'
 
 
-export const TaskResolever: QueryResolvers['drafts'] = () => {
-  return [
-    {
-      id: '111',
-      hasDone: false,
-      content: "hogehoge",
-      createdAt: new Date(),
-      createdOn: new Date()
-    }
-  ]
-}
+export const TaskQueryResolever: QueryResolvers['drafts'] = (_parent, _args, ctx) => 
+  ctx.prisma.task.findMany()
+
+export const TaskResolver: TaskResolvers = ({
+  createdOn: (parent) => parent.createdAt
+})
